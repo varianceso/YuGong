@@ -39,7 +39,7 @@ fi
 
 mount -t hugetlbfs nodev /mnt/huge
 export RTE_SDK=/home/bowenerchen/Kernel-FC28-4.17.5/dpdk-stable-17.11.3
-if [ $RTE_TARGET != "x86_64-native-linuxapp-gcc"]
+if [ $RTE_TARGET != "x86_64-native-linuxapp-gcc" ]
 then
     echo "Please setup export RTE_TARGET=\"x86_64-native-linuxapp-gcc\""
     exit -1
@@ -47,7 +47,5 @@ fi
 #export RTE_TARGET=x86_64-native-linuxapp-gcc
 export DESTDIR=/home/bowenerchen/Kernel-FC28-4.17.5/dpdk-stable-17.11.3
 
-sudo yum install numactl-devel.x86_64;
-sudo yum install kernel-devel-4.17.5-200.fc28.x86_64;
-sudo yum install elfutils-libelf-devel;
+#sudo yum install numactl-devel.x86_64 kernel-devel-4.17.5-200.fc28.x86_64 elfutils-libelf-devel;
 
