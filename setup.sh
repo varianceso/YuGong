@@ -40,11 +40,31 @@ fi
 mount -t hugetlbfs nodev /mnt/huge
 export RTE_SDK=/home/bowenerchen/Kernel-FC28-4.17.5/dpdk-stable-17.11.3
 export DESTDIR=/home/bowenerchen/Kernel-FC28-4.17.5/dpdk-stable-17.11.3
-if [ "$RTE_TARGET" != "x86_64-native-linuxapp-gcc" ]
+export RTE_TARGET=x86_64-native-linuxapp-gcc
+if [ -z "$RTE_TARGET" ]
 then
-    echo "Please setup export RTE_TARGET=\"x86_64-native-linuxapp-gcc\""
+    echo "Please setup export RTE_TARGET"
+    echo "$RTE_TARGET"
     exit -1
 fi
 
 #sudo yum install numactl-devel.x86_64 kernel-devel-4.17.5-200.fc28.x86_64 elfutils-libelf-devel;
 
+#加载驱动
+modprobe uio
+KMOD="/home/bowenerchen/Kernel-FC28-4.17.5/dpdk-stable-17.11.3/build/kmod"
+if [ -e "$KMOD/igb_uio.ko" ]
+then
+    insmod  "$KMOD/igb_uio.ko"
+fi
+
+if [ -e "$KMOD/rte_kni.ko" ]
+then
+    insmod "$KMOD/rte_kni.ko"
+fi
+
+BINDTOOL="/home/bowenerchen/Kernel-FC28-4.17.5/dpdk-stable-17.11.3/usertools/dpdk-devbind.py"
+$BINDTOOL --bind=igb_uio 0000:01:00.0
+$BINDTOOL --bind=igb_uio 0000:01:00.1
+$BINDTOOL --bind=igb_uio 0000:01:00.2
+$BINDTOOL --bind=igb_uio 0000:01:00.3

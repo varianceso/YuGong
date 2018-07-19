@@ -1,0 +1,52 @@
+使用cat /boot/grub2/grub.cfg |grep menuentry  查看系统可用内核
+查看当前内核 uname -r
+修改开机时默认使用的内核 grub2-set-default 'CentOS Linux (3.16.57) 7 (Core)'
+查看系统安装了哪些内核包 rpm -qa |grep kernel
+设置PS1:
+export PS1='\[\e]0;\u@\h \w\a\]\[\033[01;32m\]\u \[\033[01;34m\]\W \$\[\033[00m\] '
+
+更改内核的名字:
+linux-x.yy.zz/include/linux/uts.h
+#define UTS_SYSNAME "Linux"
+更改UTS可以自定义内核的名称
+
+下载内核源码：
+sudo yumdownloader --source kernel
+
+自定义内核的版本号：
+Makefile中的变量：
+VERSION=
+PATCHLEVEL=
+SUBLEVEL=
+menuconfig中，
+make menuconfig
+General Setup -> Local version -> append to kernel release
+CONFIG_LOCALVERSION
+ 
+kernel/fs/proc/version.c
+kernel/init/version.c
+
+
+在/boot目录下，存放着内核文件及镜像： 
+/boot/vmlinuz*KERNEL-VERSION*
+/boot/initrd*KERNEL-VERSION*
+/boot/System-map*KERNEL-VERSION*
+/boot/config-KERNEL-VERSION
+/lib/modules
+KERNEL-VERSION代表你想卸载的内核的版本号。
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
+ssh超时时间设置：
+/etc/ssh/sshd_config ClientAliveCountMax 
+/etc/rc.d/init.d/sshd restart
+
+后缀名为xz的这种文件是使用tar打包后再压缩生成的。解压方法是：
+　　1、xz -d **.tar.xz
+　　2、tar -xvf **.tar
+
+为单个文件生成补丁
+diff -up linux-2.6.28.8/net/sunrpc/svc.orig.c linux-2.6.28.8/net/sunrpc/svc.c > patch
+为多个文件生成补丁
+diff -uprN linux-2.6.28.8.orig/net/sunrpc/ linux-2.6.28.8/net/sunrpc/ > patch
+打补丁
+patch -p1 < patch1.diff
