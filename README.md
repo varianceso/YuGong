@@ -1,7 +1,14 @@
-Fedora 28
-Kenrel 4.17.5
-GCC 8.1.1
-DPDK 17.11.3
+获取内核的路径:
+http://cdn.kernel.org/pub/linux/kernel/v4.x/
+
+软件环境:
+OS: Fedora 28
+Kenrel: 4.17.5
+GCC: 8.1.1
+DPDK: 17.11.3
+
+硬件环境:
+CPU:
 
 学习目标：
 熟悉VPN架构(IPSec/OpenVPN/N2N)
@@ -13,3 +20,5 @@ DPDK 17.11.3
 了解网卡驱动(Intel 82580)
 了解x86_64 CPU及其汇编
 了解虚拟化相关知识
+
+
