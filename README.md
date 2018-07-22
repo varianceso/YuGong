@@ -28,7 +28,6 @@
         熟悉iptables/netfilter(连接跟踪/NAT)
         熟悉IP包的分片与重组
         熟悉DPDK的源代码
-        
         了解网卡驱动(Intel 82580)
         了解x86_64 CPU及其汇编
         了解虚拟化相关知识
