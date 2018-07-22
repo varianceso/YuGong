@@ -22,7 +22,7 @@
             node   0
               0:  10
 
-# 学习目标：
+# 愚公移山：
         熟悉VPN架构(IPSec/OpenVPN/N2N)
         熟悉路由模块
         熟悉iptables/netfilter(连接跟踪/NAT)
