@@ -4,7 +4,7 @@
 
 # 软件环境:
         OS: Fedora 28
-        Kenrel: 4.17.5
+        Kenrel: 4.17.8
         GCC: 8.1.1
         DPDK: 17.11.3
 
