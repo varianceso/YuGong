@@ -1,6 +1,7 @@
 使用cat /boot/grub2/grub.cfg |grep menuentry  查看系统可用内核
 查看当前内核 uname -r
 修改开机时默认使用的内核 grub2-set-default 'CentOS Linux (3.16.57) 7 (Core)'
+查看内核修改结果 grub2-editenv list
 查看系统安装了哪些内核包 rpm -qa |grep kernel
 设置PS1:
 export PS1='\[\e]0;\u@\h \w\a\]\[\033[01;32m\]\u \[\033[01;34m\]\W \$\[\033[00m\] '
