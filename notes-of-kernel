@@ -51,3 +51,13 @@ diff -up linux-2.6.28.8/net/sunrpc/svc.orig.c linux-2.6.28.8/net/sunrpc/svc.c > 
 diff -uprN linux-2.6.28.8.orig/net/sunrpc/ linux-2.6.28.8/net/sunrpc/ > patch
 打补丁
 patch -p1 < patch1.diff
+
+
+
+开机自动执行：
+sudo vim /etc/rc.d/rc.local 写入要执行的命令
+sudo chmod+x /etc/rc.d/rc.local
+sudo vim /usr/lib/systemd/system/rc-local.service：
+[Install]
+WantedBy=multi-user.target
+sudo systemctl enable rc-local.service
