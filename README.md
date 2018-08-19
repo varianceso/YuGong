@@ -23,13 +23,13 @@
               0:  10
 
 # 愚公移山：
-        熟悉VPN架构(IPSec/OpenVPN/N2N)
-        熟悉路由模块
-        熟悉iptables/netfilter(连接跟踪/NAT)
-        熟悉IP包的分片与重组
-        熟悉DPDK的源代码
-        了解网卡驱动(Intel 82580)
-        了解x86_64 CPU及其汇编
-        了解虚拟化相关知识
+        VPN架构(IPSec/OpenVPN/N2N)
+        路由模块
+        iptables/netfilter(连接跟踪/NAT)
+        IP包的分片与重组
+        DPDK的源代码
+        网卡驱动(Intel 82580)
+        x86_64 CPU及其汇编
+        虚拟化相关知识
 
 

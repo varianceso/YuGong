@@ -53,7 +53,6 @@ diff -uprN linux-2.6.28.8.orig/net/sunrpc/ linux-2.6.28.8/net/sunrpc/ > patch
 patch -p1 < patch1.diff
 
 
-
 开机自动执行：
 sudo vim /etc/rc.d/rc.local 写入要执行的命令
 sudo chmod+x /etc/rc.d/rc.local
